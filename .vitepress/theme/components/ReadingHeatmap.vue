@@ -132,6 +132,11 @@ const weekColumns = computed<WeekColumn[]>(() => {
     cols.push({ monthLabel, days })
   }
 
+  // Avoid cramped adjacent month labels at the left edge (e.g. col 0 "6月" next to col 1 "7月")
+  if (cols.length >= 2 && cols[0].monthLabel && cols[1].monthLabel) {
+    cols[0].monthLabel = ''
+  }
+
   return cols
 })
 
@@ -197,7 +202,7 @@ function inspectDay(day: DayStat) {
               type="button"
               class="heat-cell"
               :class="[
-                `level-${day.level}`,
+                `heat-level-${day.level}`,
                 {
                   'is-future': day.isFuture,
                   'is-selected': selectedDate === day.date && !day.isFuture
@@ -242,10 +247,10 @@ function inspectDay(day: DayStat) {
 
       <div class="heatmap-legend" aria-hidden="true">
         <span>少</span>
-        <i class="legend-cell level-0"></i>
-        <i class="legend-cell level-1"></i>
-        <i class="legend-cell level-2"></i>
-        <i class="legend-cell level-3"></i>
+        <i class="legend-cell heat-level-0"></i>
+        <i class="legend-cell heat-level-1"></i>
+        <i class="legend-cell heat-level-2"></i>
+        <i class="legend-cell heat-level-3"></i>
         <span>多</span>
       </div>
     </div>

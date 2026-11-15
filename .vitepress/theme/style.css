@@ -528,6 +528,7 @@
 
 .week-col {
   display: grid;
+  grid-template-columns: 13px;
   grid-template-rows: 16px repeat(7, 13px);
   gap: 4px;
 }
@@ -535,6 +536,8 @@
 .month-label {
   font-size: 11px;
   line-height: 16px;
+  width: 13px;
+  overflow: visible;
   color: var(--blog-muted);
   white-space: nowrap;
 }
@@ -563,19 +566,19 @@
   pointer-events: none;
 }
 
-.level-0 {
+.heat-level-0 {
   background: var(--heat-0);
 }
 
-.level-1 {
+.heat-level-1 {
   background: var(--heat-1);
 }
 
-.level-2 {
+.heat-level-2 {
   background: var(--heat-2);
 }
 
-.level-3 {
+.heat-level-3 {
   background: var(--heat-3);
 }
 
