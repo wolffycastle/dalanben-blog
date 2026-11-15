@@ -99,10 +99,10 @@ export default defineConfig({
   themeConfig: {
     siteTitle: '每日知新',
     nav: [
-      { text: '首页', link: '/' },
-      { text: '时间线归档', link: '/archive' },
-      { text: '主题标签', link: '/tags' },
-      { text: '关于', link: '/about' }
+      { text: '卷首', link: '/' },
+      { text: '时间线', link: '/archive' },
+      { text: '主题索引', link: '/tags' },
+      { text: '关于书房', link: '/about' }
     ],
     sidebar: {
       '/posts/': [
@@ -149,7 +149,7 @@ export default defineConfig({
     sidebarMenuLabel: '笔记列表',
     returnToTopLabel: '回到顶部',
     footer: {
-      message: '基于 VitePress 构建 · 每日阅读与思考沉淀',
+      message: '灰太狼的个人阅读刊物 · 基于 VitePress 构建',
       copyright: 'Copyright © 2026 每日知新'
     }
   }

@@ -17,7 +17,16 @@ interface WeekColumn {
   days: DayStat[]
 }
 
-const WEEKS = 20
+const props = withDefaults(
+  defineProps<{
+    compact?: boolean
+  }>(),
+  {
+    compact: false
+  }
+)
+
+const weeksCount = computed(() => (props.compact ? 16 : 20))
 
 function parseUTCDate(dateStr: string): Date {
   const [y, m, d] = dateStr.split('-').map(Number)
@@ -89,12 +98,12 @@ const weekColumns = computed<WeekColumn[]>(() => {
   const anchor = parseUTCDate(todayStr.value)
   const monIndex = (anchor.getUTCDay() + 6) % 7
   const gridEnd = addDaysUTC(anchor, 6 - monIndex)
-  const gridStart = addDaysUTC(gridEnd, -(WEEKS * 7 - 1))
+  const gridStart = addDaysUTC(gridEnd, -(weeksCount.value * 7 - 1))
 
   const cols: WeekColumn[] = []
   let prevMonth = -1
 
-  for (let w = 0; w < WEEKS; w++) {
+  for (let w = 0; w < weeksCount.value; w++) {
     const days: DayStat[] = []
     let monthLabel = ''
 
@@ -160,18 +169,18 @@ function inspectDay(day: DayStat) {
 </script>
 
 <template>
-  <section class="heatmap-card" aria-label="每日知识打卡热力图">
+  <section class="heatmap-card paper-box" :class="{ 'is-compact': compact }" aria-label="每日知识打卡热力图">
     <div class="heatmap-header">
       <div class="heatmap-title-group">
-        <h2 class="heatmap-title">🌱 每日知识打卡</h2>
-        <span class="heatmap-subtitle">近 {{ WEEKS }} 周记录轨迹</span>
+        <h2 class="heatmap-title">📅 每日知识打卡</h2>
+        <span v-if="!compact" class="heatmap-subtitle">近 {{ weeksCount }} 周记录轨迹</span>
       </div>
 
       <div class="heatmap-kpis">
         <span class="kpi-pill">
           连续 <strong>{{ currentStreak }}</strong> 天
         </span>
-        <span class="kpi-pill">
+        <span v-if="!compact" class="kpi-pill">
           共 <strong>{{ posts.length }}</strong> 篇
         </span>
         <span class="kpi-pill">
@@ -182,7 +191,7 @@ function inspectDay(day: DayStat) {
 
     <div class="heatmap-scroll">
       <div class="heatmap-board">
-        <div class="weekday-col" aria-hidden="true">
+        <div v-if="!compact" class="weekday-col" aria-hidden="true">
           <span class="month-spacer"></span>
           <span>一</span>
           <span></span>

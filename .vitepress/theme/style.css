@@ -1,69 +1,176 @@
+/* =========================================================
+ * 风格 1：新中式书房 · 纸感杂志风（Xuan Paper Editorial）
+ * ========================================================= */
+
 :root {
-  --vp-c-brand-1: #2d6a4f;
-  --vp-c-brand-2: #40916c;
-  --vp-c-brand-3: #1b4332;
-  --vp-c-brand-soft: rgba(45, 106, 79, 0.12);
+  --vp-c-brand-1: #b5492e;
+  --vp-c-brand-2: #9c3b23;
+  --vp-c-brand-3: #7d2d19;
+  --vp-c-brand-soft: rgba(181, 73, 46, 0.11);
 
-  --vp-c-bg: #faf9f5;
-  --vp-c-bg-alt: #f3f1ea;
-  --vp-c-bg-elv: #ffffff;
-  --vp-c-bg-soft: #f1efe7;
+  --vp-c-bg: #f5f0e6;
+  --vp-c-bg-alt: #efe9dc;
+  --vp-c-bg-elv: #fbf8f1;
+  --vp-c-bg-soft: #ede6d8;
 
-  --blog-card-bg: #ffffff;
-  --blog-card-border: rgba(27, 67, 50, 0.1);
-  --blog-card-shadow: 0 2px 12px rgba(27, 67, 50, 0.04);
-  --blog-quote-bg: #f4f2eb;
-  --blog-muted: #646a63;
+  --vp-c-text-1: #1f2421;
+  --vp-c-text-2: #4c4940;
+  --vp-c-text-3: #777166;
+  --vp-c-divider: rgba(34, 41, 38, 0.14);
+  --vp-c-gutter: rgba(34, 41, 38, 0.12);
 
+  --editorial-ink: #222926;
+  --blog-card-bg: #fbf8f1;
+  --blog-card-border: rgba(34, 41, 38, 0.16);
+  --blog-card-shadow: 4px 4px 0 rgba(34, 41, 38, 0.055);
+  --blog-quote-bg: #efe9dc;
+  --blog-muted: #6b675e;
+
+  --heat-0: #e8e1d3;
+  --heat-1: #dfc0b2;
+  --heat-2: #cb7a63;
+  --heat-3: #b5492e;
+
+  --stage-seedling-bg: rgba(120, 113, 102, 0.13);
+  --stage-seedling-fg: #544f47;
+  --stage-budding-bg: rgba(181, 73, 46, 0.12);
+  --stage-budding-fg: #9c3b23;
+  --stage-evergreen-bg: rgba(45, 90, 74, 0.12);
+  --stage-evergreen-fg: #265041;
+
+  --font-editorial-serif: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
   --vp-font-family-base: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 .dark {
-  --vp-c-brand-1: #52b788;
-  --vp-c-brand-2: #74c69d;
-  --vp-c-brand-3: #40916c;
-  --vp-c-brand-soft: rgba(82, 183, 136, 0.14);
+  --vp-c-brand-1: #dc7659;
+  --vp-c-brand-2: #e58e75;
+  --vp-c-brand-3: #b5492e;
+  --vp-c-brand-soft: rgba(220, 118, 89, 0.15);
 
-  --vp-c-bg: #161816;
-  --vp-c-bg-alt: #1d201d;
-  --vp-c-bg-elv: #202420;
-  --vp-c-bg-soft: #202420;
+  --vp-c-bg: #181714;
+  --vp-c-bg-alt: #1f1d19;
+  --vp-c-bg-elv: #23211c;
+  --vp-c-bg-soft: #25221d;
 
-  --blog-card-bg: #1e211e;
-  --blog-card-border: rgba(116, 198, 157, 0.14);
-  --blog-card-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
-  --blog-quote-bg: #232723;
-  --blog-muted: #9aa39a;
+  --vp-c-text-1: #ece6d9;
+  --vp-c-text-2: #c4bdb0;
+  --vp-c-text-3: #968f82;
+  --vp-c-divider: rgba(245, 240, 230, 0.12);
+  --vp-c-gutter: rgba(245, 240, 230, 0.1);
+
+  --editorial-ink: #d9d1c3;
+  --blog-card-bg: #211f1b;
+  --blog-card-border: rgba(245, 240, 230, 0.13);
+  --blog-card-shadow: 4px 4px 0 rgba(0, 0, 0, 0.28);
+  --blog-quote-bg: #26231e;
+  --blog-muted: #9e9689;
+
+  --heat-0: #2b2823;
+  --heat-1: #5c3024;
+  --heat-2: #964632;
+  --heat-3: #dc7659;
+
+  --stage-seedling-bg: rgba(168, 162, 152, 0.16);
+  --stage-seedling-fg: #c9c2b6;
+  --stage-budding-bg: rgba(220, 118, 89, 0.18);
+  --stage-budding-fg: #eb937a;
+  --stage-evergreen-bg: rgba(95, 168, 138, 0.18);
+  --stage-evergreen-fg: #8cd1b4;
 }
 
-/* Comfortable editorial typography for Chinese reading */
+/* Subtle Xuan-paper fiber texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.dark body::before {
+  opacity: 0.025;
+}
+
+/* Editorial Masthead Navbar Overrides */
+.VPNavBar {
+  background-color: rgba(245, 240, 230, 0.92) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--editorial-ink) !important;
+}
+
+.dark .VPNavBar {
+  background-color: rgba(24, 23, 20, 0.9) !important;
+  border-bottom: 1.5px solid rgba(236, 230, 217, 0.25) !important;
+}
+
+.VPNavBar .divider {
+  display: none !important;
+}
+
+.VPNavBarTitle .title {
+  font-family: var(--font-editorial-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.VPNavBarMenuLink {
+  font-size: 0.92rem;
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+.VPNavBarSearch .DocSearch-Button {
+  border-radius: 4px;
+  border: 1px solid var(--blog-card-border);
+  background: var(--blog-card-bg);
+}
+
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider) !important;
+  background-color: transparent !important;
+}
+
+/* Editorial typography for articles */
 .vp-doc {
-  line-height: 1.85;
+  line-height: 1.9;
   font-size: 16px;
 }
 
 .vp-doc p,
 .vp-doc li {
-  line-height: 1.85;
+  line-height: 1.9;
+}
+
+.vp-doc h1,
+.vp-doc h2 {
+  font-family: var(--font-editorial-serif);
+  letter-spacing: 0.01em;
 }
 
 .vp-doc h1 {
-  letter-spacing: -0.01em;
-  line-height: 1.35;
+  line-height: 1.38;
+  font-weight: 700;
 }
 
 .vp-doc h2 {
-  margin-top: 2.2rem;
-  border-top: 1px solid var(--vp-c-divider);
+  margin-top: 2.3rem;
+  border-top: 1px dashed var(--vp-c-divider);
   padding-top: 1.4rem;
 }
 
 .vp-doc blockquote {
-  margin: 1.4rem 0;
-  padding: 0.9rem 1.2rem;
+  margin: 1.45rem 0;
+  padding: 0.95rem 1.25rem;
   border-left: 3px solid var(--vp-c-brand-1);
   background: var(--blog-quote-bg);
-  border-radius: 0 8px 8px 0;
   color: var(--vp-c-text-1);
 }
 
@@ -71,91 +178,299 @@
   margin: 0;
 }
 
-/* Home editorial wrapper */
-.editorial-home {
-  max-width: 780px;
-  margin: 1.5rem auto 3rem;
-  padding: 0 1.25rem;
+/* =========================================================
+ * Homepage: Magazine Front-Page Spread
+ * ========================================================= */
+.magazine-home {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0.65rem 1.5rem 3.5rem;
 }
 
-.stats-strip {
+.issue-ribbon {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1.1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  background: var(--blog-card-bg);
-  border: 1px solid var(--blog-card-border);
-  font-size: 0.92rem;
+  gap: 0.5rem 1rem;
+  padding: 0.6rem 0;
+  margin-bottom: 2.1rem;
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
   color: var(--blog-muted);
 }
 
-.stats-items {
+.magazine-spread {
+  display: grid;
+  grid-template-columns: 1.38fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 920px) {
+  .magazine-spread {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.editorial-kicker {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.65rem;
+}
+
+.editorial-headline {
+  font-family: var(--font-editorial-serif);
+  font-size: clamp(1.95rem, 3.6vw, 2.55rem);
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin: 0 0 0.95rem;
+}
+
+.editorial-lead {
+  font-size: 0.98rem;
+  line-height: 1.82;
+  color: var(--vp-c-text-2);
+  margin: 0 0 1.8rem;
+  max-width: 36rem;
+}
+
+.section-rule-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0;
+  margin-bottom: 0.35rem;
+  border-top: 1px solid var(--editorial-ink);
+  border-bottom: 1px solid var(--vp-c-divider);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.78rem;
+  color: var(--blog-muted);
+}
+
+.rule-link {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.rule-link:hover {
+  text-decoration: underline;
+}
+
+.editorial-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.editorial-row {
+  padding: 1.15rem 0;
+  border-bottom: 1px dashed var(--vp-c-divider);
+}
+
+.editorial-row-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.48rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.78rem;
+  color: var(--blog-muted);
+  margin-bottom: 0.45rem;
 }
 
-.stats-items strong {
+.editorial-row-title {
+  margin: 0 0 0.45rem;
+  padding: 0;
+  border: none;
+  font-family: var(--font-editorial-serif);
+  font-size: 1.28rem;
+  line-height: 1.42;
+  font-weight: 700;
+}
+
+.editorial-row-title a {
   color: var(--vp-c-text-1);
-  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.archive-shortcut {
+.editorial-row-title a:hover {
   color: var(--vp-c-brand-1);
+}
+
+.editorial-row-desc {
+  margin: 0 0 0.7rem;
+  font-size: 0.92rem;
+  line-height: 1.72;
+  color: var(--vp-c-text-2);
+}
+
+.editorial-row-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.spread-footer {
+  margin-top: 1.75rem;
+}
+
+.view-all-btn {
+  display: inline-block;
+  padding: 0.52rem 1.2rem;
+  border-radius: 3px;
+  border: 1px solid var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
+  transition: all 0.16s ease;
 }
 
-.archive-shortcut:hover {
+.view-all-btn:hover {
+  background: var(--vp-c-brand-1);
+  color: #ffffff;
+}
+
+/* Right Aside Column */
+.spread-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.paper-box {
+  background: var(--blog-card-bg);
+  border: 1px solid var(--blog-card-border);
+  box-shadow: var(--blog-card-shadow);
+  padding: 1.15rem 1.25rem;
+  border-radius: 3px;
+}
+
+.reading-now-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.reading-now-title {
+  font-family: var(--font-editorial-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+.reading-now-tag {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--vp-c-brand-1);
+}
+
+.reading-now-book {
+  font-family: var(--font-editorial-serif);
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.35rem;
+}
+
+.reading-now-note {
+  margin: 0 0 0.65rem;
+  font-size: 0.86rem;
+  line-height: 1.65;
+  color: var(--blog-muted);
+}
+
+.reading-now-link {
+  font-size: 0.84rem;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.reading-now-link:hover {
   text-decoration: underline;
+}
+
+.aside-quote-card {
+  margin: 0;
+  padding: 1rem 1.15rem;
+  background: var(--blog-quote-bg);
+  border-left: 3px solid var(--vp-c-brand-1);
+}
+
+.aside-quote-text {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-editorial-serif);
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: var(--vp-c-text-1);
+}
+
+.aside-quote-cite {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.76rem;
+  color: var(--blog-muted);
+  text-align: right;
 }
 
 .dot {
   opacity: 0.5;
 }
 
-/* Post cards */
+/* =========================================================
+ * Shared Tag Pills & Post Cards (Tags Page)
+ * ========================================================= */
 .post-feed {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1rem;
 }
 
 .post-card {
-  padding: 1.35rem 1.5rem;
-  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  border-radius: 3px;
   background: var(--blog-card-bg);
   border: 1px solid var(--blog-card-border);
   box-shadow: var(--blog-card-shadow);
-  transition: transform 0.18s ease, border-color 0.18s ease;
+  transition: border-color 0.16s ease;
 }
 
 .post-card:hover {
-  transform: translateY(-1px);
-  border-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-1);
 }
 
 .post-meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.86rem;
+  gap: 0.48rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.8rem;
   color: var(--blog-muted);
   margin-bottom: 0.45rem;
 }
 
 .post-title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.5rem;
   padding: 0;
   border: none;
-  font-size: 1.25rem;
+  font-family: var(--font-editorial-serif);
+  font-size: 1.22rem;
   line-height: 1.45;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .post-title a {
@@ -168,30 +483,30 @@
 }
 
 .post-summary {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.8rem;
   color: var(--vp-c-text-2);
-  font-size: 0.96rem;
-  line-height: 1.7;
+  font-size: 0.94rem;
+  line-height: 1.72;
 }
 
 .post-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.42rem;
 }
 
 .tag-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  color: var(--vp-c-brand-1);
+  padding: 0.14rem 0.58rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  color: var(--vp-c-brand-2);
   background: var(--vp-c-brand-soft);
   border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: border-color 0.15s ease;
 }
 
 .tag-pill:hover {
@@ -199,35 +514,16 @@
   text-decoration: none;
 }
 
-.feed-footer {
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.view-all-btn {
-  display: inline-block;
-  padding: 0.6rem 1.3rem;
-  border-radius: 999px;
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.15s ease;
-}
-
-.view-all-btn:hover {
-  background: var(--vp-c-brand-1);
-  color: #ffffff;
-}
-
-/* Archive timeline */
+/* =========================================================
+ * Archive Timeline
+ * ========================================================= */
 .archive-wrapper {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .archive-lead {
   color: var(--blog-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .year-section {
@@ -235,7 +531,8 @@
 }
 
 .year-heading {
-  font-size: 1.45rem;
+  font-family: var(--font-editorial-serif);
+  font-size: 1.5rem;
   font-weight: 700;
   margin: 1.5rem 0 0.75rem;
   border-top: none !important;
@@ -245,12 +542,13 @@
 .month-block {
   margin-left: 0.35rem;
   padding-left: 1.25rem;
-  border-left: 2px solid var(--vp-c-divider);
+  border-left: 1.5px solid var(--vp-c-divider);
 }
 
 .month-heading {
+  font-family: var(--font-editorial-serif);
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--vp-c-brand-1);
   margin: 1rem 0 0.6rem;
 }
@@ -267,23 +565,24 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.85rem;
-  padding: 0.45rem 0;
+  padding: 0.48rem 0;
+  border-bottom: 1px dashed rgba(34, 41, 38, 0.08);
 }
 
 .timeline-item::before {
   content: "";
   position: absolute;
-  left: -1.58rem;
-  top: 0.92rem;
-  width: 8px;
-  height: 8px;
+  left: -1.56rem;
+  top: 0.94rem;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--vp-c-brand-1);
 }
 
 .timeline-date {
   font-family: var(--vp-font-family-mono);
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--blog-muted);
   min-width: 3.2rem;
 }
@@ -292,11 +591,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .timeline-link {
-  font-weight: 500;
+  font-family: var(--font-editorial-serif);
+  font-weight: 600;
   color: var(--vp-c-text-1);
   text-decoration: none;
 }
@@ -313,9 +613,9 @@
 }
 
 .tag-mini {
-  font-size: 0.76rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
+  font-size: 0.75rem;
+  padding: 0.08rem 0.48rem;
+  border-radius: 3px;
   background: var(--vp-c-bg-soft);
   color: var(--blog-muted);
   text-decoration: none;
@@ -325,7 +625,9 @@
   color: var(--vp-c-brand-1);
 }
 
-/* Tag filter page */
+/* =========================================================
+ * Tag Filter Page
+ * ========================================================= */
 .tags-wrapper {
   margin-top: 1rem;
 }
@@ -333,17 +635,17 @@
 .tag-filter-bar {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.5rem;
   margin-bottom: 1.2rem;
 }
 
 .filter-pill {
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
   border: 1px solid var(--blog-card-border);
   background: var(--blog-card-bg);
   color: var(--vp-c-text-2);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -361,11 +663,13 @@
 
 .filtered-summary {
   margin-bottom: 1rem;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--blog-muted);
 }
 
-/* Article post header */
+/* =========================================================
+ * Article Header
+ * ========================================================= */
 .post-doc-header {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
@@ -377,14 +681,25 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--blog-muted);
+  margin-bottom: 0.65rem;
+}
+
+.post-doc-submeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.82rem;
   color: var(--blog-muted);
   margin-bottom: 0.75rem;
 }
 
 .back-archive {
   margin-left: auto;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--vp-c-brand-1);
   text-decoration: none;
 }
@@ -396,58 +711,26 @@
 .post-doc-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.42rem;
 }
 
 .empty-state {
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 3px;
   background: var(--blog-card-bg);
   border: 1px dashed var(--blog-card-border);
   color: var(--blog-muted);
 }
 
-
 /* =========================================================
- * 套餐一：每日打卡数字花园组件样式
+ * ⑤ 每日知识打卡热力图
  * ========================================================= */
-
-:root {
-  --heat-0: #ebe8de;
-  --heat-1: #b7e4c7;
-  --heat-2: #52b788;
-  --heat-3: #2d6a4f;
-
-  --stage-seedling-bg: rgba(82, 183, 136, 0.14);
-  --stage-seedling-fg: #246b4c;
-  --stage-budding-bg: rgba(217, 119, 6, 0.12);
-  --stage-budding-fg: #a15206;
-  --stage-evergreen-bg: rgba(27, 67, 50, 0.13);
-  --stage-evergreen-fg: #1b4332;
-}
-
-.dark {
-  --heat-0: #282c28;
-  --heat-1: #1f4d3a;
-  --heat-2: #2d6a4f;
-  --heat-3: #52b788;
-
-  --stage-seedling-bg: rgba(82, 183, 136, 0.16);
-  --stage-seedling-fg: #74c69d;
-  --stage-budding-bg: rgba(251, 191, 36, 0.14);
-  --stage-budding-fg: #fbbf24;
-  --stage-evergreen-bg: rgba(116, 198, 157, 0.2);
-  --stage-evergreen-fg: #95d5b2;
-}
-
-/* ⑤ 每日打卡热力图 */
 .heatmap-card {
-  padding: 1.25rem 1.35rem;
-  margin-bottom: 1.15rem;
-  border-radius: 12px;
-  background: var(--blog-card-bg);
-  border: 1px solid var(--blog-card-border);
-  box-shadow: var(--blog-card-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.heatmap-card.is-compact {
+  margin-bottom: 0;
 }
 
 .heatmap-header {
@@ -455,41 +738,44 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
 }
 
 .heatmap-title-group {
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .heatmap-title {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-editorial-serif);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--vp-c-text-1);
 }
 
 .heatmap-subtitle {
-  font-size: 0.82rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.76rem;
   color: var(--blog-muted);
 }
 
 .heatmap-kpis {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .kpi-pill {
-  padding: 0.2rem 0.65rem;
-  border-radius: 999px;
+  padding: 0.14rem 0.52rem;
+  border-radius: 3px;
   background: var(--vp-c-bg-soft);
-  font-size: 0.82rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.76rem;
   color: var(--blog-muted);
 }
 
@@ -500,13 +786,13 @@
 
 .heatmap-scroll {
   overflow-x: auto;
-  padding-bottom: 0.25rem;
+  padding-bottom: 0.2rem;
 }
 
 .heatmap-board {
   display: inline-flex;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: 0.45rem;
   min-width: max-content;
 }
 
@@ -533,8 +819,24 @@
   gap: 4px;
 }
 
+.is-compact .weeks-row {
+  gap: 4px;
+}
+
+.is-compact .week-col {
+  grid-template-columns: 14px;
+  grid-template-rows: 15px repeat(7, 14px);
+  gap: 4px;
+}
+
+.is-compact .heat-cell {
+  width: 14px;
+  height: 14px;
+}
+
 .month-label {
-  font-size: 11px;
+  font-family: var(--vp-font-family-mono);
+  font-size: 10.5px;
   line-height: 16px;
   width: 13px;
   overflow: visible;
@@ -547,13 +849,13 @@
   height: 13px;
   padding: 0;
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   cursor: pointer;
   transition: transform 0.12s ease, outline-color 0.12s ease;
 }
 
 .heat-cell:not(:disabled):hover {
-  transform: scale(1.18);
+  transform: scale(1.16);
 }
 
 .heat-cell.is-selected {
@@ -587,11 +889,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.85rem;
-  padding-top: 0.75rem;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding-top: 0.65rem;
   border-top: 1px dashed var(--vp-c-divider);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   color: var(--blog-muted);
 }
 
@@ -605,7 +907,7 @@
 .inspector-date {
   font-family: var(--vp-font-family-mono);
   color: var(--vp-c-text-1);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .inspector-link {
@@ -626,32 +928,34 @@
 .heatmap-legend {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.78rem;
+  gap: 3px;
+  font-size: 0.75rem;
 }
 
 .legend-cell {
   display: inline-block;
-  width: 11px;
-  height: 11px;
+  width: 10px;
+  height: 10px;
   border-radius: 2px;
 }
 
-/* ⑧ 笔记成熟度徽章 */
+/* =========================================================
+ * ⑧ 笔记成熟度徽章
+ * ========================================================= */
 .stage-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.16rem 0.62rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 500;
+  gap: 0.28rem;
+  padding: 0.14rem 0.56rem;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 600;
   line-height: 1.4;
 }
 
 .stage-badge.is-compact {
-  padding: 0.08rem 0.5rem;
-  font-size: 0.75rem;
+  padding: 0.06rem 0.46rem;
+  font-size: 0.72rem;
 }
 
 .stage-seedling {
@@ -674,24 +978,16 @@
   font-weight: 400;
 }
 
-.post-doc-submeta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.88rem;
-  color: var(--blog-muted);
-  margin-bottom: 0.75rem;
-}
-
-/* ⑨ 来源与书摘名片卡 */
+/* =========================================================
+ * ⑨ 来源与书摘名片卡
+ * ========================================================= */
 .source-card {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
-  margin: 1.35rem 0;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
+  gap: 0.5rem;
+  margin: 1.4rem 0;
+  padding: 1.05rem 1.25rem;
+  border-radius: 3px;
   background: var(--blog-card-bg);
   border: 1px solid var(--blog-card-border);
   box-shadow: var(--blog-card-shadow);
@@ -702,11 +998,12 @@
   align-items: center;
   gap: 0.35rem;
   align-self: flex-start;
-  padding: 0.15rem 0.55rem;
-  border-radius: 6px;
+  padding: 0.14rem 0.52rem;
+  border-radius: 3px;
   background: var(--vp-c-brand-soft);
   color: var(--vp-c-brand-1);
-  font-size: 0.78rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.76rem;
   font-weight: 600;
 }
 
@@ -719,13 +1016,14 @@
 }
 
 .source-title {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-family: var(--font-editorial-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
   color: var(--vp-c-text-1);
 }
 
 .source-link {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--vp-c-brand-1);
   text-decoration: none;
   font-weight: 500;
@@ -746,28 +1044,31 @@
   margin: 0.4rem 0 0;
   font-size: 0.92rem;
   color: var(--vp-c-text-2);
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
-/* ⑩ 杂志感金句卡片 */
+/* =========================================================
+ * ⑩ 杂志感金句卡片 & 思考批注块
+ * ========================================================= */
 .pull-quote {
   position: relative;
-  margin: 1.6rem 0;
-  padding: 1.35rem 1.5rem 1.2rem 2.75rem;
-  border-radius: 12px;
+  margin: 1.65rem 0;
+  padding: 1.3rem 1.5rem 1.2rem 2.75rem;
+  border-radius: 3px;
   background: var(--blog-quote-bg);
   border: 1px solid var(--blog-card-border);
+  border-left: 3px solid var(--vp-c-brand-1);
 }
 
 .pull-quote-mark {
   position: absolute;
   left: 0.9rem;
-  top: 0.35rem;
+  top: 0.3rem;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 3rem;
+  font-size: 2.9rem;
   line-height: 1;
   color: var(--vp-c-brand-1);
-  opacity: 0.35;
+  opacity: 0.4;
   user-select: none;
 }
 
@@ -776,10 +1077,11 @@
   padding: 0 !important;
   border: none !important;
   background: transparent !important;
-  font-size: 1.06rem;
-  line-height: 1.8;
+  font-family: var(--font-editorial-serif);
+  font-size: 1.08rem;
+  line-height: 1.82;
   color: var(--vp-c-text-1);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pull-quote-body p {
@@ -787,37 +1089,39 @@
 }
 
 .pull-quote-cite {
-  margin-top: 0.75rem;
+  margin-top: 0.7rem;
   text-align: right;
-  font-size: 0.86rem;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.82rem;
   color: var(--blog-muted);
 }
 
-/* ⑩ 思考批注块 */
 .thought-box {
-  margin: 1.45rem 0;
+  margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  border-radius: 10px;
+  border-radius: 3px;
+  border: 1px solid var(--blog-card-border);
   border-left: 3.5px solid var(--vp-c-brand-1);
   background: var(--vp-c-brand-soft);
 }
 
 .thought-box.thought-question {
-  border-left-color: #d97706;
-  background: rgba(217, 119, 6, 0.08);
+  border-left-color: #b45309;
+  background: rgba(180, 83, 9, 0.08);
 }
 
 .thought-box.thought-action {
-  border-left-color: #2563eb;
-  background: rgba(37, 99, 235, 0.08);
+  border-left-color: #265041;
+  background: rgba(38, 80, 65, 0.08);
 }
 
 .thought-title {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-weight: 600;
-  font-size: 0.94rem;
+  font-family: var(--font-editorial-serif);
+  font-weight: 700;
+  font-size: 0.96rem;
   color: var(--vp-c-text-1);
   margin-bottom: 0.45rem;
 }
@@ -825,7 +1129,7 @@
 .thought-content {
   font-size: 0.95rem;
   color: var(--vp-c-text-1);
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .thought-content p:first-child {
