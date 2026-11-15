@@ -37,6 +37,7 @@ const escapedTitle = rawTitle.replace(/"/g, '\\"')
 const template = `---
 title: "${escapedTitle}"
 date: ${dateStr}
+stage: seedling # 可选: seedling(🌱 初记) | budding(🌿 梳理中) | evergreen(🌳 沉淀完成)
 tags:
   - 日常思考
 summary: 一句话概括今天看到的核心观点或启发。
@@ -44,17 +45,32 @@ summary: 一句话概括今天看到的核心观点或启发。
 
 # ${rawTitle}
 
+<SourceCard
+  title="今日阅读来源标题（不用可删）"
+  author="作者或来源"
+  type="文章"
+  note="一句话说明为什么想记下这篇内容。"
+/>
+
 ## 今日所读 / 所见
 
 这里记录今天看到的文章、书籍章节或触动你的见闻来源。
 
 ## 核心摘录
 
-> 可以用引用块记下原话，方便以后回看。
+<PullQuote author="原作者">
+
+这里放今天最打动你的一句原话，方便以后快速回看。
+
+</PullQuote>
 
 ## 我的思考
 
+<ThoughtBox type="thought">
+
 用自己的话写下几点理解、联想，或者和生活经验的对照。
+
+</ThoughtBox>
 `
 
 fs.writeFileSync(targetPath, template, 'utf-8')

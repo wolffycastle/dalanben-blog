@@ -75,3 +75,14 @@ daily-blog/
 
    或者自定义提交说明：`npm run sync -- "记录今天的读书笔记"`。
    脚本会自动完成 `git add`、`git commit` 和 `git push`，GitHub Actions 收到推送后会自动构建并更新你的线上博客。
+
+---
+
+## 数字花园特色功能与可复用组件
+
+- **每日知识打卡热力图**：首页自动统计近 20 周每天的笔记篇数与字数，点亮绿色方格并计算连续打卡天数。
+- **笔记成熟度徽章（`stage`）**：在文章顶部 Frontmatter 写入 `stage: seedling`（🌱 初记）、`budding`（🌿 梳理中）或 `evergreen`（🌳 沉淀完成），不写则默认为 `seedling`。
+- **文章内可复用组件**（直接在 Markdown 中使用）：
+  - `<SourceCard title="书名/文章名" author="作者" type="书籍" link="https://..." note="简评" />`
+  - `<PullQuote author="作者" source="出处">金句内容</PullQuote>`
+  - `<ThoughtBox type="thought" title="我的思考">个人批注与联想</ThoughtBox>`（`type` 支持 `thought` / `question` / `action`）

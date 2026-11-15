@@ -1,4 +1,5 @@
 import { createContentLoader } from 'vitepress'
+import { normalizeStage, type NoteStage } from './stage'
 
 export interface PostItem {
   title: string
@@ -9,7 +10,9 @@ export interface PostItem {
   monthDay: string
   timestamp: number
   tags: string[]
+  stage: NoteStage
   summary: string
+  charCount: number
   readingMinutes: number
 }
 
@@ -67,6 +70,8 @@ function stripMarkdown(rawSrc: string): string {
   return rawSrc
     .replace(/^---[\s\S]*?---\s*/, '')
     .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<\/?[A-Z][A-Za-z0-9]*[^>]*>/g, ' ')
     .replace(/`([^`]+)`/g, '$1')
     .replace(/^#{1,6}\s+.*$/gm, ' ')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
@@ -123,7 +128,9 @@ export default createContentLoader('posts/*.md', {
           monthDay: month && day ? `${month}-${day}` : date,
           timestamp,
           tags: normalizeTags(frontmatter.tags),
+          stage: normalizeStage(frontmatter.stage),
           summary: extractSummary(frontmatter, plainText),
+          charCount,
           readingMinutes
         }
       })

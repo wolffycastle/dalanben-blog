@@ -406,3 +406,429 @@
   border: 1px dashed var(--blog-card-border);
   color: var(--blog-muted);
 }
+
+
+/* =========================================================
+ * 套餐一：每日打卡数字花园组件样式
+ * ========================================================= */
+
+:root {
+  --heat-0: #ebe8de;
+  --heat-1: #b7e4c7;
+  --heat-2: #52b788;
+  --heat-3: #2d6a4f;
+
+  --stage-seedling-bg: rgba(82, 183, 136, 0.14);
+  --stage-seedling-fg: #246b4c;
+  --stage-budding-bg: rgba(217, 119, 6, 0.12);
+  --stage-budding-fg: #a15206;
+  --stage-evergreen-bg: rgba(27, 67, 50, 0.13);
+  --stage-evergreen-fg: #1b4332;
+}
+
+.dark {
+  --heat-0: #282c28;
+  --heat-1: #1f4d3a;
+  --heat-2: #2d6a4f;
+  --heat-3: #52b788;
+
+  --stage-seedling-bg: rgba(82, 183, 136, 0.16);
+  --stage-seedling-fg: #74c69d;
+  --stage-budding-bg: rgba(251, 191, 36, 0.14);
+  --stage-budding-fg: #fbbf24;
+  --stage-evergreen-bg: rgba(116, 198, 157, 0.2);
+  --stage-evergreen-fg: #95d5b2;
+}
+
+/* ⑤ 每日打卡热力图 */
+.heatmap-card {
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.15rem;
+  border-radius: 12px;
+  background: var(--blog-card-bg);
+  border: 1px solid var(--blog-card-border);
+  box-shadow: var(--blog-card-shadow);
+}
+
+.heatmap-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.heatmap-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.heatmap-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.heatmap-subtitle {
+  font-size: 0.82rem;
+  color: var(--blog-muted);
+}
+
+.heatmap-kpis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.kpi-pill {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--vp-c-bg-soft);
+  font-size: 0.82rem;
+  color: var(--blog-muted);
+}
+
+.kpi-pill strong {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.heatmap-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.heatmap-board {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: max-content;
+}
+
+.weekday-col {
+  display: grid;
+  grid-template-rows: 16px repeat(7, 13px);
+  gap: 4px;
+  font-size: 11px;
+  line-height: 13px;
+  color: var(--blog-muted);
+  text-align: right;
+  user-select: none;
+}
+
+.weeks-row {
+  display: flex;
+  gap: 4px;
+}
+
+.week-col {
+  display: grid;
+  grid-template-rows: 16px repeat(7, 13px);
+  gap: 4px;
+}
+
+.month-label {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--blog-muted);
+  white-space: nowrap;
+}
+
+.heat-cell {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.12s ease, outline-color 0.12s ease;
+}
+
+.heat-cell:not(:disabled):hover {
+  transform: scale(1.18);
+}
+
+.heat-cell.is-selected {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 1px;
+}
+
+.heat-cell.is-future {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.level-0 {
+  background: var(--heat-0);
+}
+
+.level-1 {
+  background: var(--heat-1);
+}
+
+.level-2 {
+  background: var(--heat-2);
+}
+
+.level-3 {
+  background: var(--heat-3);
+}
+
+.heatmap-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--vp-c-divider);
+  font-size: 0.84rem;
+  color: var(--blog-muted);
+}
+
+.day-inspector {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.inspector-date {
+  font-family: var(--vp-font-family-mono);
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+
+.inspector-link {
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.inspector-link:hover {
+  text-decoration: underline;
+}
+
+.inspector-link + .inspector-link::before {
+  content: "、";
+  color: var(--blog-muted);
+}
+
+.heatmap-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+}
+
+.legend-cell {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+
+/* ⑧ 笔记成熟度徽章 */
+.stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.16rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.stage-badge.is-compact {
+  padding: 0.08rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.stage-seedling {
+  background: var(--stage-seedling-bg);
+  color: var(--stage-seedling-fg);
+}
+
+.stage-budding {
+  background: var(--stage-budding-bg);
+  color: var(--stage-budding-fg);
+}
+
+.stage-evergreen {
+  background: var(--stage-evergreen-bg);
+  color: var(--stage-evergreen-fg);
+}
+
+.stage-hint {
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+.post-doc-submeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--blog-muted);
+  margin-bottom: 0.75rem;
+}
+
+/* ⑨ 来源与书摘名片卡 */
+.source-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin: 1.35rem 0;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background: var(--blog-card-bg);
+  border: 1px solid var(--blog-card-border);
+  box-shadow: var(--blog-card-shadow);
+}
+
+.source-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  align-self: flex-start;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.source-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.source-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.source-link {
+  font-size: 0.85rem;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.source-link:hover {
+  text-decoration: underline;
+}
+
+.source-author {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  color: var(--blog-muted);
+}
+
+.source-note,
+.source-slot {
+  margin: 0.4rem 0 0;
+  font-size: 0.92rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.65;
+}
+
+/* ⑩ 杂志感金句卡片 */
+.pull-quote {
+  position: relative;
+  margin: 1.6rem 0;
+  padding: 1.35rem 1.5rem 1.2rem 2.75rem;
+  border-radius: 12px;
+  background: var(--blog-quote-bg);
+  border: 1px solid var(--blog-card-border);
+}
+
+.pull-quote-mark {
+  position: absolute;
+  left: 0.9rem;
+  top: 0.35rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--vp-c-brand-1);
+  opacity: 0.35;
+  user-select: none;
+}
+
+.pull-quote-body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: 1.06rem;
+  line-height: 1.8;
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+
+.pull-quote-body p {
+  margin: 0;
+}
+
+.pull-quote-cite {
+  margin-top: 0.75rem;
+  text-align: right;
+  font-size: 0.86rem;
+  color: var(--blog-muted);
+}
+
+/* ⑩ 思考批注块 */
+.thought-box {
+  margin: 1.45rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border-left: 3.5px solid var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
+
+.thought-box.thought-question {
+  border-left-color: #d97706;
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.thought-box.thought-action {
+  border-left-color: #2563eb;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.thought-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.45rem;
+}
+
+.thought-content {
+  font-size: 0.95rem;
+  color: var(--vp-c-text-1);
+  line-height: 1.75;
+}
+
+.thought-content p:first-child {
+  margin-top: 0;
+}
+
+.thought-content p:last-child {
+  margin-bottom: 0;
+}

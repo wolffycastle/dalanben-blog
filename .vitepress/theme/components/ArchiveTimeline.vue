@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
 import { data as posts, type PostItem } from '../posts.data'
+import StageBadge from './StageBadge.vue'
 
 interface MonthGroup {
   month: string
@@ -58,6 +59,7 @@ const groupedArchive = computed<YearGroup[]>(() => {
             <time class="timeline-date" :datetime="post.date">{{ post.monthDay }}</time>
             <div class="timeline-content">
               <a class="timeline-link" :href="withBase(post.url)">{{ post.title }}</a>
+              <StageBadge :stage="post.stage" compact />
               <span class="timeline-tags">
                 <a
                   v-for="tag in post.tags"

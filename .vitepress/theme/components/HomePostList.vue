@@ -2,6 +2,8 @@
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data'
+import ReadingHeatmap from './ReadingHeatmap.vue'
+import StageBadge from './StageBadge.vue'
 
 const recentPosts = computed(() => posts.slice(0, 10))
 const latestDate = computed(() => posts[0]?.date || '暂无')
@@ -18,6 +20,8 @@ const uniqueTagCount = computed(() => {
 
 <template>
   <section class="editorial-home">
+    <ReadingHeatmap />
+
     <div class="stats-strip">
       <div class="stats-items">
         <span>共 <strong>{{ posts.length }}</strong> 篇笔记</span>
@@ -38,9 +42,11 @@ const uniqueTagCount = computed(() => {
     <div v-else class="post-feed">
       <article v-for="post in recentPosts" :key="post.url" class="post-card">
         <div class="post-meta">
+          <StageBadge :stage="post.stage" compact />
+          <span class="dot">·</span>
           <time :datetime="post.date">{{ post.date }}</time>
           <span class="dot">·</span>
-          <span>约 {{ post.readingMinutes }} 分钟阅读</span>
+          <span>{{ post.charCount }} 字 · 约 {{ post.readingMinutes }} 分钟</span>
         </div>
 
         <h2 class="post-title">

@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { withBase } from 'vitepress'
 import { data as posts } from '../posts.data'
+import StageBadge from './StageBadge.vue'
 
 interface TagCount {
   name: string
@@ -88,9 +89,11 @@ onMounted(() => {
     <div class="post-feed">
       <article v-for="post in filteredPosts" :key="post.url" class="post-card">
         <div class="post-meta">
+          <StageBadge :stage="post.stage" compact />
+          <span class="dot">·</span>
           <time :datetime="post.date">{{ post.date }}</time>
           <span class="dot">·</span>
-          <span>约 {{ post.readingMinutes }} 分钟阅读</span>
+          <span>{{ post.charCount }} 字 · 约 {{ post.readingMinutes }} 分钟</span>
         </div>
 
         <h2 class="post-title">
