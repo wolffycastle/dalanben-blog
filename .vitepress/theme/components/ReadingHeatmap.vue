@@ -26,7 +26,7 @@ const props = withDefaults(
   }
 )
 
-const weeksCount = computed(() => (props.compact ? 16 : 20))
+const weeksCount = computed(() => (props.compact ? 14 : 20))
 
 function parseUTCDate(dateStr: string): Date {
   const [y, m, d] = dateStr.split('-').map(Number)
@@ -172,20 +172,16 @@ function inspectDay(day: DayStat) {
   <section class="heatmap-card paper-box" :class="{ 'is-compact': compact }" aria-label="每日知识打卡热力图">
     <div class="heatmap-header">
       <div class="heatmap-title-group">
-        <h2 class="heatmap-title">📅 每日知识打卡</h2>
-        <span v-if="!compact" class="heatmap-subtitle">近 {{ weeksCount }} 周记录轨迹</span>
+        <h2 class="heatmap-title">每日打卡</h2>
+        <span v-if="!compact" class="heatmap-subtitle">近 {{ weeksCount }} 周</span>
       </div>
 
-      <div class="heatmap-kpis">
-        <span class="kpi-pill">
-          连续 <strong>{{ currentStreak }}</strong> 天
-        </span>
-        <span v-if="!compact" class="kpi-pill">
-          共 <strong>{{ posts.length }}</strong> 篇
-        </span>
-        <span class="kpi-pill">
-          累计 <strong>{{ totalCharsDisplay }}</strong>
-        </span>
+      <div class="heatmap-summary-line">
+        <span>连续 <strong>{{ currentStreak }}</strong> 天</span>
+        <span class="dot">·</span>
+        <span>{{ posts.length }} 篇</span>
+        <span class="dot">·</span>
+        <span>{{ totalCharsDisplay }}</span>
       </div>
     </div>
 
@@ -238,7 +234,6 @@ function inspectDay(day: DayStat) {
         <span class="inspector-date">{{ activeDayDetail.date }}</span>
         <template v-if="activeDayDetail.count > 0">
           <span class="dot">·</span>
-          <span>记录 {{ activeDayDetail.count }} 篇（{{ activeDayDetail.chars }} 字）：</span>
           <a
             v-for="item in activeDayDetail.posts"
             :key="item.url"
@@ -250,11 +245,11 @@ function inspectDay(day: DayStat) {
         </template>
         <template v-else>
           <span class="dot">·</span>
-          <span class="inspector-empty">当日暂无笔记，点击上方绿色方块可查看对应文章</span>
+          <span class="inspector-empty">点击上方着色方格查看当日笔记</span>
         </template>
       </div>
 
-      <div class="heatmap-legend" aria-hidden="true">
+      <div v-if="!compact" class="heatmap-legend" aria-hidden="true">
         <span>少</span>
         <i class="legend-cell heat-level-0"></i>
         <i class="legend-cell heat-level-1"></i>

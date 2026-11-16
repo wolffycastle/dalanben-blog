@@ -23,16 +23,14 @@ const currentPost = computed(() => {
 <template>
   <div v-if="currentPost" class="post-doc-header">
     <div class="post-doc-meta">
-      <StageBadge :stage="currentPost.stage" show-hint />
-      <a class="back-archive" :href="withBase('/archive')">← 返回时间线</a>
-    </div>
-
-    <div class="post-doc-submeta">
-      <span class="meta-chip">记录于 {{ currentPost.date }}</span>
+      <StageBadge :stage="currentPost.stage" compact />
+      <span class="dot">·</span>
+      <span class="meta-chip">{{ currentPost.date }}</span>
       <span class="dot">·</span>
       <span class="meta-chip">{{ currentPost.charCount }} 字</span>
       <span class="dot">·</span>
-      <span class="meta-chip">约 {{ currentPost.readingMinutes }} 分钟阅读</span>
+      <span class="meta-chip">约 {{ currentPost.readingMinutes }} 分钟</span>
+      <a class="back-archive" :href="withBase('/archive')">← 返回时间线</a>
     </div>
 
     <div class="post-doc-tags">
