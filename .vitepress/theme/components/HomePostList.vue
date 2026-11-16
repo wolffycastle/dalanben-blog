@@ -15,7 +15,7 @@ const recentPosts = computed(() => posts.slice(0, 6))
         <header class="editorial-intro">
           <div class="editorial-kicker">DAILY READING &amp; REFLECTION</div>
           <h1 class="editorial-headline">
-            在信息洪流里，修一座慢读书房。
+            在信息洪流里，<span class="no-wrap">修一座慢读书房。</span>
           </h1>
           <p class="editorial-lead">
             每天留下一段读到的好句子与自己的思考，让零散阅读慢慢长成记忆。

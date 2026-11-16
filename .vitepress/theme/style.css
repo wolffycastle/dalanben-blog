@@ -221,11 +221,15 @@ body::before {
 
 .editorial-headline {
   font-family: var(--font-editorial-serif);
-  font-size: clamp(1.85rem, 3.2vw, 2.3rem);
-  line-height: 1.32;
+  font-size: clamp(1.75rem, 2.8vw, 2.15rem);
+  line-height: 1.35;
   font-weight: 700;
   color: var(--vp-c-text-1);
   margin: 0 0 0.75rem;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 .editorial-lead {
